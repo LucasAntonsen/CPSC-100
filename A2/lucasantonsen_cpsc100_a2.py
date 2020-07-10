@@ -28,14 +28,17 @@ def guessing_game(computer_letter):
         if guessed_letter <= lower_bound or guessed_letter >= upper_bound or len(guessed_letter) > 1:
             print('Invalid entry')
             guesses += 1
+            
         #low bound < comp letter < guess
         elif computer_letter < guessed_letter:
             upper_bound = guessed_letter
             guesses += 1
+            
         #guess < comp letter < upper bound
         elif guessed_letter < computer_letter:
             lower_bound = guessed_letter
             guesses += 1
+            
         #right answer
         else:
             print('You are correct! The computer selected the letter',computer_letter,'!')

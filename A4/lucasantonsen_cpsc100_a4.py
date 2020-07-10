@@ -8,6 +8,9 @@
 # Python Version: 3.6.2
 #--------------------------------
 
+#Created by Instr. Colin Dyck
+#Completed by Lucas Antonsen
+
 import os
 import sys
 import random

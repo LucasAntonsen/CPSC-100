@@ -149,7 +149,7 @@ def main():
 
     action = input("Enter difficulty level you would like to play at (1-3): ")
     
-    while action < '1' or action > '3' or len(action) > 1:
+    while action < '1' or action > '3':
         print("I do not understand. I suggest practicing your keyboard technique!")
         action = input("Enter difficulty level you would like to play at (1-3): ")
     

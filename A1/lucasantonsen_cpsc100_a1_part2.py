@@ -16,7 +16,6 @@ import random
 #list of possible moves in rock, paper, scissors
 valid_moves = ['Rock','Paper','Scissors']
 
-
 def get_computer_throw():
     #Computer chooses a random throw
     return random.choice(valid_moves)

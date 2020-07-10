@@ -11,7 +11,6 @@
 import os
 import sys
 
-
 def right_justify(s):
     #The function needs to return(spaces*(70 - (the length of the string)) + the string)
     return (' '*(70-len(s))+ s)
@@ -21,4 +20,5 @@ def main():
     print(right_justify('My cat\'s name is Mittens'))
 
 
-main()
+if __name__ == '__main__':
+    main()

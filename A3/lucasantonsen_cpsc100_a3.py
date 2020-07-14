@@ -141,9 +141,7 @@ def main():
     words = load_words('hangman_words.txt')
     print('There are {0} words'.format(len(words)))
 
-    #these need to be loaded up
-    #level_1_2_words = []
-    #level_3_words = ??
+    #load up words
     level_1_2_words = words[49:]
     level_3_words = words[:49]
 

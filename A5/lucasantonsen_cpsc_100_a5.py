@@ -98,6 +98,7 @@ def count_syllables(phrase, word_syllables):
     
     #returns syllable count of the phrase
     count = 0
+    
     for word in phrase.split():
         
         #checks lowercase version of phrase in word_syllables

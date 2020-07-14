@@ -126,8 +126,6 @@ def main():
         results[result] = results.get(result, 0) + 1
         
 
-        #you need to fill the dictionary with the winning weapon
-
     print(results)
 
 if __name__ == '__main__':

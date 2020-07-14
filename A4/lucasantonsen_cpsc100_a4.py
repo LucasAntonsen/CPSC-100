@@ -31,8 +31,8 @@ rules = {
 
 def get_player_throw():
     '''
-    player throw, typed in from stdin
-    :return: user input
+    player throw
+    :return: random throw
     '''
     return random.choice(valid_moves)
 
@@ -43,7 +43,7 @@ def get_outcome(player_one_throw, player_two_throw):
     :param computer_throw: result of computer throw
     :return: string of outcome
     '''
-    #we will have two items in our dictionary referring to the two parts of the assignment
+    #we will have two items in our dictionary, Message & Winner, referring to the two parts of the assignment
     outcome = {}
 
     #get the dictionaries based on the player throws
@@ -52,8 +52,8 @@ def get_outcome(player_one_throw, player_two_throw):
 
     #determine outcome
     if player_one_throw == player_two_throw:
-        outcome[0] = 'Tie! Both players pick {0}!!'.format(player_one_throw)
-        outcome[1] = 'Tie'
+        outcome['Message'] = 'Tie! Both players pick {0}!!'.format(player_one_throw)
+        outcome['Winner'] = 'Tie'
 
     #if player_two_throw is in the list of the items that player_one_throw beats
     elif player_two_throw in player_one_rules['beats']:
@@ -64,9 +64,9 @@ def get_outcome(player_one_throw, player_two_throw):
         else:
             idx = 1
             
-        outcome[0] = 'Player 1 wins! {0} {1} {2}!!'.format(player_one_throw, player_one_rules['verb'][idx], player_two_throw)
+        outcome['Message'] = 'Player 1 wins! {0} {1} {2}!!'.format(player_one_throw, player_one_rules['verb'][idx], player_two_throw)
         #player_one_throw wins under this condition therefore
-        outcome[1] = player_one_throw
+        outcome['Winner'] = player_one_throw
         
     #if player_one_throw is in the list of the items that player_two_throw beats
     elif player_one_throw in player_two_rules['beats']:
@@ -76,9 +76,10 @@ def get_outcome(player_one_throw, player_two_throw):
             idx = 0
         else:
             idx = 1
-        outcome[0] = 'Player 2 wins! {0} {1} {2}!!'.format(player_two_throw, player_two_rules['verb'][idx], player_one_throw)
+            
+        outcome['Message'] = 'Player 2 wins! {0} {1} {2}!!'.format(player_two_throw, player_two_rules['verb'][idx], player_one_throw)
         #player_two_throw wins under this condition therefore
-        outcome[1] = player_two_throw
+        outcome['Winner'] = player_two_throw
         
     else:
         #we shouldn't ever get here
@@ -102,8 +103,8 @@ def main():
         player_one_throw = get_player_throw()
         player_two_throw = get_player_throw()
         
-        #result = the [0] key of the outcome dictionary
-        result = get_outcome(player_one_throw, player_two_throw)[0]
+        #result = the Message key of the outcome dictionary
+        result = get_outcome(player_one_throw, player_two_throw)['Message']
         print('Game {0}: {1}'.format(i + 1, result))
 
     #part 2
@@ -118,8 +119,8 @@ def main():
         player_one_throw = get_player_throw()
         player_two_throw = get_player_throw()
         
-        #result = the [1] key of the outcome dictionary
-        result = get_outcome(player_one_throw, player_two_throw)[1]
+        #result = the Winner key of the outcome dictionary
+        result = get_outcome(player_one_throw, player_two_throw)['Winner']
         
         #adds the winners as keys to the dictionary and their corresponding value refers to how many times the key has won
         results[result] = results.get(result, 0) + 1
